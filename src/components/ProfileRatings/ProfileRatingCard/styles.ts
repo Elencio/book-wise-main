@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { styled } from "../../../../stitches.config";
+import Image from 'next/image'
+import { styled } from '../../../../stitches.config'
 
 export const Container = styled('div', {
   display: 'flex',
@@ -20,11 +20,11 @@ export const BookDetails = styled('div', {
   display: 'flex',
   gap: '$6',
 
-  "> section": {
+  '> section': {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-  }
+  },
 })
 
 export const BookImage = styled(Image, {
@@ -33,7 +33,7 @@ export const BookImage = styled(Image, {
   borderRadius: 4,
   transition: '0.2s',
 
-  "&:hover": {
+  '&:hover': {
     filter: 'brightness(1.2)',
-  }
+  },
 })

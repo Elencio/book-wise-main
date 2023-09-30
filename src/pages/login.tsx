@@ -1,12 +1,12 @@
-import { Heading, Text } from "@/components/Typography";
-import { AuthButtons } from "@/components/AuthsButtons";
+import { Heading, Text } from '@/components/Typography'
+import { AuthButtons } from '@/components/AuthsButtons'
 import {
   LoginContainer,
   LogoSection,
   WelcomeSection,
-} from "@/styles/pages/login";
-import Head from "next/head";
-import Image from "next/image";
+} from '@/styles/pages/login'
+import Head from 'next/head'
+import Image from 'next/image'
 
 export default function Login() {
   return (
@@ -31,5 +31,5 @@ export default function Login() {
         <AuthButtons canGuest />
       </WelcomeSection>
     </LoginContainer>
-  );
+  )
 }

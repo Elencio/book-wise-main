@@ -1,30 +1,30 @@
-import { signIn } from "next-auth/react";
-import { AuthButton, Container } from "./styles";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import { signIn } from 'next-auth/react'
+import { AuthButton, Container } from './styles'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 type AuthButtonsProps = {
-  callbackUrl?: string;
-  canGuest?: boolean;
-};
+  callbackUrl?: string
+  canGuest?: boolean
+}
 
-export function AuthButtons({ callbackUrl = "/", canGuest }: AuthButtonsProps) {
-  const router = useRouter();
+export function AuthButtons({ callbackUrl = '/', canGuest }: AuthButtonsProps) {
+  const router = useRouter()
 
   function handleSignIn(provider?: string) {
     if (!provider) {
-      router.push("/");
-      return;
+      router.push('/')
+      return
     }
 
     signIn(provider, {
       callbackUrl,
-    });
+    })
   }
 
   return (
     <Container>
-      <AuthButton onClick={() => handleSignIn("google")}>
+      <AuthButton onClick={() => handleSignIn('google')}>
         <Image
           width={32}
           height={32}
@@ -33,7 +33,7 @@ export function AuthButtons({ callbackUrl = "/", canGuest }: AuthButtonsProps) {
         />
         Entrar com Google
       </AuthButton>
-      <AuthButton onClick={() => handleSignIn("github")}>
+      <AuthButton onClick={() => handleSignIn('github')}>
         <Image
           width={32}
           height={32}
@@ -54,5 +54,5 @@ export function AuthButtons({ callbackUrl = "/", canGuest }: AuthButtonsProps) {
         </AuthButton>
       )}
     </Container>
-  );
+  )
 }

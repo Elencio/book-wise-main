@@ -1,4 +1,4 @@
-import { styled } from "../../../../stitches.config";
+import { styled } from '../../../../stitches.config'
 
 export const Container = styled('button', {
   width: 40,
@@ -16,12 +16,12 @@ export const Container = styled('button', {
     height: 24,
   },
 
-  "&:not(:disabled):hover": {
+  '&:not(:disabled):hover': {
     background: '$gray500',
   },
 
-  "&:disabled": {
+  '&:disabled': {
     opacity: 0.5,
     cursor: 'not-allowed',
-  }
+  },
 })

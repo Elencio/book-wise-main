@@ -1,6 +1,6 @@
-import { ComponentProps } from "@stitches/react"
-import { Container } from "./styles"
-import { ReactNode } from "react"
+import { ComponentProps } from '@stitches/react'
+import { Container } from './styles'
+import { ReactNode } from 'react'
 
 type TagProps = ComponentProps<typeof Container> & {
   children: ReactNode

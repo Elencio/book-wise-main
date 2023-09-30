@@ -1,13 +1,13 @@
-import { ReactElement } from "react"
-import { HomeContainer } from "@/styles/pages/home"
-import { NextPageWithLayout } from "../_app"
-import { ProfileRating, ProfileRatings } from "@/components/ProfileRatings"
-import { ProfileDetails } from "@/components/ProfileDetails"
-import { useQuery } from "@tanstack/react-query"
-import { useRouter } from "next/router"
-import { api } from "@/lib/axios"
-import { useSession } from "next-auth/react"
-import { DefaultLayout } from "@/layouts/defaultLayout"
+import { ReactElement } from 'react'
+import { HomeContainer } from '@/styles/pages/home'
+import { NextPageWithLayout } from '../_app'
+import { ProfileRating, ProfileRatings } from '@/components/ProfileRatings'
+import { ProfileDetails } from '@/components/ProfileDetails'
+import { useQuery } from '@tanstack/react-query'
+import { useRouter } from 'next/router'
+import { api } from '@/lib/axios'
+import { useSession } from 'next-auth/react'
+import { DefaultLayout } from '@/layouts/defaultLayout'
 
 export type ProfileData = {
   ratings: ProfileRating[]
@@ -23,25 +23,32 @@ export type ProfileData = {
 }
 
 const ProfilePage: NextPageWithLayout = () => {
-  const router = useRouter();
-  const userId = router.query.id as string;
+  const router = useRouter()
+  const userId = router.query.id as string
 
-  const { data: session } = useSession();
+  const { data: session } = useSession()
 
-  const isOwnProfile = session?.user?.id === userId;
+  const isOwnProfile = session?.user?.id === userId
 
-  const { data: profile } = useQuery<ProfileData>(["profile", userId], async () => {
-    const { data } = await api.get(`/profile/${userId}`)
-    return data?.profile ?? {}
-  }, {
-    enabled: !!userId
-  })
+  const { data: profile } = useQuery<ProfileData>(
+    ['profile', userId],
+    async () => {
+      const { data } = await api.get(`/profile/${userId}`)
+      return data?.profile ?? {}
+    },
+    {
+      enabled: !!userId,
+    },
+  )
 
   return (
     <HomeContainer>
-      {!!profile ? (
+      {profile ? (
         <>
-          <ProfileRatings isOwnProfile={isOwnProfile} ratings={profile?.ratings} />
+          <ProfileRatings
+            isOwnProfile={isOwnProfile}
+            ratings={profile?.ratings}
+          />
           <ProfileDetails profile={profile} />
         </>
       ) : (
@@ -52,11 +59,7 @@ const ProfilePage: NextPageWithLayout = () => {
 }
 
 ProfilePage.getLayout = (page: ReactElement) => {
-  return (
-    <DefaultLayout title="Perfil">
-      {page}
-    </DefaultLayout>
-  )
+  return <DefaultLayout title="Perfil">{page}</DefaultLayout>
 }
 
 export default ProfilePage

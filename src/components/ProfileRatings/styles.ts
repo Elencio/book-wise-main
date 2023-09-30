@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
   width: '100%',
@@ -8,9 +8,9 @@ export const Container = styled('div', {
   overflowY: 'auto',
   paddingBottom: 40,
 
-  "&::-webkit-scrollbar": {
+  '&::-webkit-scrollbar': {
     display: 'none',
-  }
+  },
 })
 
 export const RatingsList = styled('div', {

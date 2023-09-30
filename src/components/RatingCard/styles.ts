@@ -1,12 +1,12 @@
-import Image from "next/image";
-import { styled } from "../../../stitches.config";
+import Image from 'next/image'
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
   width: '100%',
   borderRadius: 8,
   padding: '$6',
   display: 'flex',
-  flexDirection: 'column', 
+  flexDirection: 'column',
 
   variants: {
     variant: {
@@ -15,9 +15,9 @@ export const Container = styled('div', {
       },
       compact: {
         background: '$gray600',
-      }
-    }
-  }
+      },
+    },
+  },
 })
 
 export const CompactDetails = styled('div', {
@@ -51,13 +51,13 @@ export const BookDetails = styled('div', {
 })
 
 export const BookImage = styled(Image, {
-  minWidth: 108, 
+  minWidth: 108,
   objectFit: 'cover',
   transition: '0.2s',
 
   '&:hover': {
     filter: 'brightness(1.2)',
-  }
+  },
 })
 
 export const BookContent = styled('div', {

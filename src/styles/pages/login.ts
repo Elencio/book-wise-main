@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const LoginContainer = styled('main', {
   display: 'grid',
@@ -29,5 +29,5 @@ export const WelcomeSection = styled('section', {
 
   section: {
     marginTop: 40,
-  }
+  },
 })

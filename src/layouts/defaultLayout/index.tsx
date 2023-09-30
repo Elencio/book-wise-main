@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
-import { Container, Content } from "./styles"
-import Head from "next/head"
-import { Sidebar } from "@/components/Sidebar"
+import { ReactNode } from 'react'
+import { Container, Content } from './styles'
+import Head from 'next/head'
+import { Sidebar } from '@/components/Sidebar'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -16,9 +16,7 @@ export const DefaultLayout = ({ children, title }: DefaultLayoutProps) => {
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
       </Head>
       <Sidebar />
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </Container>
   )
 }

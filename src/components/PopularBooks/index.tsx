@@ -1,33 +1,30 @@
-import { useQuery } from "@tanstack/react-query"
-import { BookCard, BookWithAvgRating } from "../BookCard"
-import { Text } from "../Typography"
-import { Link } from "../ui/Link"
-import { Container } from "./styles"
-import { api } from "@/lib/axios"
+import { useQuery } from '@tanstack/react-query'
+import { BookCard, BookWithAvgRating } from '../BookCard'
+import { Text } from '../Typography'
+import { Link } from '../ui/Link'
+import { Container } from './styles'
+import { api } from '@/lib/axios'
 
 export const PopularBooks = () => {
-  const { data: popularBooks } = useQuery<BookWithAvgRating[]>(['popular-books'], async () => {
-    const { data } = await api.get('/books/popular')
-    return data?.books ?? []
-  })
-  
+  const { data: popularBooks } = useQuery<BookWithAvgRating[]>(
+    ['popular-books'],
+    async () => {
+      const { data } = await api.get('/books/popular')
+      return data?.books ?? []
+    },
+  )
+
   return (
     <Container>
       <header>
-        <Text size='sm'>Livros populares</Text>
-        <Link href='/explorer' text='Ver todos' />
+        <Text size="sm">Livros populares</Text>
+        <Link href="/explorer" text="Ver todos" />
       </header>
       <section>
-        { popularBooks?.map((book) => {
-          return (
-            <BookCard 
-              key={`popular-${book.id}`} 
-              book={book}
-            />
-          )
+        {popularBooks?.map((book) => {
+          return <BookCard key={`popular-${book.id}`} book={book} />
         })}
       </section>
     </Container>
   )
 }
-

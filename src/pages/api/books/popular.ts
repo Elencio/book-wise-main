@@ -1,7 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "@/lib/prisma";
+import { NextApiRequest, NextApiResponse } from 'next'
+import { prisma } from '@/lib/prisma'
 
-export default async function handler (req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   if (req.method !== 'GET') {
     return res.status(405).end()
   }
@@ -10,7 +13,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     orderBy: {
       ratings: {
         _count: 'desc',
-      }
+      },
     },
     include: {
       ratings: true,
@@ -22,8 +25,8 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
     by: ['book_id'],
     where: {
       book_id: {
-        in: books.map((book) => book.id)
-      }
+        in: books.map((book) => book.id),
+      },
     },
     _avg: {
       rate: true,
@@ -31,11 +34,13 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
   })
 
   const booksWithAvgRating = books.map((book) => {
-    const bookAvgRating = booksAvgRating.find((avgRating) => avgRating.book_id === book.id)
+    const bookAvgRating = booksAvgRating.find(
+      (avgRating) => avgRating.book_id === book.id,
+    )
     const { ratings, ...bookInfo } = book
     return {
       ...bookInfo,
-      avgRating: bookAvgRating?._avg.rate
+      avgRating: bookAvgRating?._avg.rate,
     }
   })
 

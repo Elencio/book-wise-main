@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
-import { Container } from "./styles"
-import { Heading, Text } from "@/components/Typography"
+import { ReactNode } from 'react'
+import { Container } from './styles'
+import { Heading, Text } from '@/components/Typography'
 
 type BookInfoProps = {
   icon: ReactNode
@@ -13,8 +13,12 @@ export const BookInfo = ({ icon, title, info }: BookInfoProps) => {
     <Container>
       {icon}
       <div>
-        <Text size='sm' color='gray-300'>{title}</Text>
-        <Heading size='sm' color='gray-200'>{info}</Heading>
+        <Text size="sm" color="gray-300">
+          {title}
+        </Text>
+        <Heading size="sm" color="gray-200">
+          {info}
+        </Heading>
       </div>
     </Container>
   )

@@ -1,5 +1,5 @@
-import { ComponentProps } from "@stitches/react"
-import { AvatarImage, Container } from "./styles"
+import { ComponentProps } from '@stitches/react'
+import { AvatarImage, Container } from './styles'
 
 type AvatarProps = ComponentProps<typeof Container> & {
   src: string

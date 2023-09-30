@@ -1,36 +1,36 @@
-import { styled } from "../../../../../stitches.config";
+import { styled } from '../../../../../stitches.config'
 
-export const Container = styled("div", {
-  background: "$gray800",
-  border: "1px solid currentColor",
-  display: "flex",
+export const Container = styled('div', {
+  background: '$gray800',
+  border: '1px solid currentColor',
+  display: 'flex',
   flexDirection: 'column',
-  width: "100%",
+  width: '100%',
   borderRadius: 4,
-  color: "$gray500",
-  transition: "0.2s",
+  color: '$gray500',
+  transition: '0.2s',
 
-  "&:focus-within": {
-    color: "$green200"
+  '&:focus-within': {
+    color: '$green200',
   },
 
   textarea: {
     flex: 1,
     padding: '0.875rem $5',
-    background: "none",
-    border: "none",
-    color: "$gray100",
-    fontSize: "0.875rem",
+    background: 'none',
+    border: 'none',
+    color: '$gray100',
+    fontSize: '0.875rem',
     resize: 'none',
     minHeight: 136,
 
-    "&::placeholder": {
-      color: "$gray400"
+    '&::placeholder': {
+      color: '$gray400',
     },
 
-    "&:focus": {
-      outline: "none"
-    }
+    '&:focus': {
+      outline: 'none',
+    },
   },
 
   span: {

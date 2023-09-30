@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
   background: '$gray700',
@@ -11,7 +11,7 @@ export const UserDetails = styled('div', {
   alignItems: 'center',
   justifyContent: 'space-between',
 
-  "> section": {
+  '> section': {
     display: 'flex',
     alignItems: 'center',
     gap: '$4',

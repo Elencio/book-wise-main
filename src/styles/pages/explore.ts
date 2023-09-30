@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const ExploreContainer = styled('section', {
   width: '100%',
@@ -7,7 +7,7 @@ export const ExploreContainer = styled('section', {
   display: 'flex',
   flexDirection: 'column',
 
-  "> header": {
+  '> header': {
     display: 'flex',
     justifyContent: 'space-between',
   },

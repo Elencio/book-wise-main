@@ -1,18 +1,18 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('section', {
   display: 'flex',
   flexDirection: 'column',
   marginTop: 40,
 
-  "> header": {
+  '> header': {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '$4',
   },
 
-  "> section": {
+  '> section': {
     display: 'flex',
     flexDirection: 'column',
     gap: '$3',

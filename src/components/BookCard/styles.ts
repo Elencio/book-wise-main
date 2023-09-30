@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { styled } from "../../../stitches.config";
-import { Heading } from "../Typography";
+import Image from 'next/image'
+import { styled } from '../../../stitches.config'
+import { Heading } from '../Typography'
 
 export const Container = styled('div', {
   display: 'flex',
@@ -13,7 +13,7 @@ export const Container = styled('div', {
   transition: '0.2s',
   position: 'relative',
   overflow: 'hidden',
-  
+
   '&:hover': {
     borderColor: '$gray600',
   },
@@ -47,6 +47,6 @@ export const BookName = styled(Heading, {
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   display: '-webkit-box',
-  "-webkit-line-clamp": 2,
-  "-webkit-box-orient": "vertical"
+  '-webkit-line-clamp': 2,
+  '-webkit-box-orient': 'vertical',
 })

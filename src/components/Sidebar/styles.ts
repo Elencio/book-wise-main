@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { styled } from "../../../stitches.config";
+import Link from 'next/link'
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('aside', {
   width: 234,
@@ -18,7 +18,7 @@ export const Container = styled('aside', {
   '.logo': {
     width: 128,
     marginBottom: 64,
-  }
+  },
 })
 
 export const LoginButton = styled(Link, {
@@ -32,7 +32,7 @@ export const LoginButton = styled(Link, {
 
   svg: {
     color: '$green100',
-  }
+  },
 })
 
 export const UserDetails = styled('div', {

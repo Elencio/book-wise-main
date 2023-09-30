@@ -1,20 +1,20 @@
-import { prisma } from "@/lib/prisma"
-import { getMostFrequentString } from "@/utils/getMostFrequentString"
-import { NextApiRequest, NextApiResponse } from "next"
+import { prisma } from '@/lib/prisma'
+import { getMostFrequentString } from '@/utils/getMostFrequentString'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  if(req.method !== "GET") {
+  if (req.method !== 'GET') {
     return res.status(405).end()
   }
 
   const userId = String(req.query.userId)
 
-	const profile = await prisma.user.findUnique({
+  const profile = await prisma.user.findUnique({
     where: {
-      id: userId
+      id: userId,
     },
     include: {
       ratings: {
@@ -23,31 +23,37 @@ export default async function handler(
             include: {
               categories: {
                 include: {
-                  category: true
-                }
-              }
-            }
-          }
+                  category: true,
+                },
+              },
+            },
+          },
         },
         orderBy: {
-          created_at: "desc"
-        }
-      }
-    }
+          created_at: 'desc',
+        },
+      },
+    },
   })
 
-  const readPages = profile?.ratings.reduce((acc, rating) => acc + rating.book.total_pages, 0);
-  const ratedBooks = profile?.ratings.length;
+  const readPages = profile?.ratings.reduce(
+    (acc, rating) => acc + rating.book.total_pages,
+    0,
+  )
+  const ratedBooks = profile?.ratings.length
   const readAuthors = profile?.ratings.reduce((acc, rating) => {
-    if(!acc.includes(rating.book.author)) {
+    if (!acc.includes(rating.book.author)) {
       acc.push(rating.book.author)
     }
     return acc
-  }, [] as string[]);
-  
-  const categories = profile?.ratings?.flatMap(rating => rating?.book?.categories?.flatMap(category => category?.category?.name))
+  }, [] as string[])
 
-  //const mostReadCategory = categories ? getMostFrequentString(categories) : null;
+  const categories = profile?.ratings?.flatMap(
+    (rating) =>
+      rating?.book?.categories?.flatMap((category) => category?.category?.name),
+  )
+
+  // const mostReadCategory = categories ? getMostFrequentString(categories) : null;
 
   const profileData = {
     user: {
@@ -59,8 +65,8 @@ export default async function handler(
     readPages,
     ratedBooks,
     readAuthors: readAuthors?.length,
-    //mostReadCategory
+    // mostReadCategory
   }
 
-	return res.json({ profile: profileData })
+  return res.json({ profile: profileData })
 }

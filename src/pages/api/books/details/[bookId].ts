@@ -1,7 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "@/lib/prisma";
+import { NextApiRequest, NextApiResponse } from 'next'
+import { prisma } from '@/lib/prisma'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   if (req.method !== 'GET') {
     return res.status(405).end()
   }
@@ -10,12 +13,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const book = await prisma.book.findUnique({
     where: {
-      id: bookId
+      id: bookId,
     },
     include: {
       categories: {
         include: {
-          category: true
+          category: true,
         },
       },
       ratings: {
@@ -38,7 +41,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const bookWithAvgRating = {
     ...book,
-    avgRating: booksAvgRating[0]?._avg.rate ?? 0
+    avgRating: booksAvgRating[0]?._avg.rate ?? 0,
   }
 
   return res.json({ book: bookWithAvgRating })

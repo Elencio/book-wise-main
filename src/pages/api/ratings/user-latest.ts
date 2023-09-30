@@ -1,14 +1,21 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { buildNextAuthOptions } from "../auth/[...nextauth]";
+import { NextApiRequest, NextApiResponse } from 'next'
+import { prisma } from '@/lib/prisma'
+import { getServerSession } from 'next-auth'
+import { buildNextAuthOptions } from '../auth/[...nextauth]'
 
-export default async function handler (req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   if (req.method !== 'GET') {
     return res.status(405).end()
   }
 
-  const session = await getServerSession(req, res, buildNextAuthOptions(req, res))
+  const session = await getServerSession(
+    req,
+    res,
+    buildNextAuthOptions(req, res),
+  )
 
   if (!session) {
     return res.status(401).end()
@@ -19,7 +26,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
       user_id: String(session?.user?.id),
     },
     orderBy: {
-      created_at: "desc"
+      created_at: 'desc',
     },
     include: {
       book: true,

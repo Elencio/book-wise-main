@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
   display: 'flex',
@@ -13,7 +13,7 @@ export const UserInfo = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
 
-  "&::after": {
+  '&::after': {
     content: "''",
     display: 'block',
     width: 32,

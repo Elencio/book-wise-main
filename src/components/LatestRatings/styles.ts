@@ -1,4 +1,4 @@
-import { styled } from "../../../stitches.config";
+import { styled } from '../../../stitches.config'
 
 export const Container = styled('div', {
   width: '100%',
@@ -31,5 +31,5 @@ export const LatestContainer = styled('div', {
     justifyContent: 'space-between',
     gap: '$4',
     marginBottom: '$4',
-  }
+  },
 })

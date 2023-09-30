@@ -1,7 +1,7 @@
-import { ComponentProps } from "@stitches/react"
-import { Container } from "./styles"
+import { ComponentProps } from '@stitches/react'
+import { Container } from './styles'
 import { Star } from '@phosphor-icons/react'
-import { useState } from "react"
+import { useState } from 'react'
 
 type RatingStarsProps = ComponentProps<typeof Container> & {
   rating: number
@@ -9,8 +9,13 @@ type RatingStarsProps = ComponentProps<typeof Container> & {
   setRating?: (rating: number) => void
 }
 
-export const RatingStars = ({ rating, size = 'sm', setRating, ...props }: RatingStarsProps) => {
-  const [ previewValue, setPreviewValue ] = useState(0)
+export const RatingStars = ({
+  rating,
+  size = 'sm',
+  setRating,
+  ...props
+}: RatingStarsProps) => {
+  const [previewValue, setPreviewValue] = useState(0)
   const isEditable = !!setRating
   const ratingValue = isEditable ? previewValue : rating
 
@@ -31,14 +36,18 @@ export const RatingStars = ({ rating, size = 'sm', setRating, ...props }: Rating
       setRating(ratingValue)
     }
   }
-  
+
   return (
-    <Container css={isEditable ? { cursor: 'pointer'  } : undefined} size={size} {...props}>
-      { Array.from({ length: 5 }).map((_, i) => {
+    <Container
+      css={isEditable ? { cursor: 'pointer' } : undefined}
+      size={size}
+      {...props}
+    >
+      {Array.from({ length: 5 }).map((_, i) => {
         return (
-          <Star  
+          <Star
             key={`star-${i}`}
-            weight={(i + 1) <= ratingValue ? 'fill' : 'regular'}
+            weight={i + 1 <= ratingValue ? 'fill' : 'regular'}
             onMouseEnter={() => handleMouseEnter(i + 1)}
             onMouseLeave={handleMouseLeave}
             onClick={handleSetValue}
