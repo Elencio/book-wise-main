@@ -1,6 +1,7 @@
 import { Heading, Text } from '@/components/Typography'
 import { AuthButtons } from '@/components/AuthsButtons'
 import {
+  ContentHeader,
   LoginContainer,
   LogoSection,
   WelcomeSection,
@@ -24,9 +25,17 @@ export default function Login() {
         />
       </LogoSection>
       <WelcomeSection>
-        <Heading size="lg" color="gray-100">
-          Boas vindas!
-        </Heading>
+        <ContentHeader>
+          <Heading size="lg" color="orange-500">
+            Read.
+          </Heading>
+          <Heading size="lg" color="cyan-500">
+            Write.
+          </Heading>
+          <Heading size="lg" color="green-500">
+            Grow
+          </Heading>
+        </ContentHeader>
         <Text color="gray-200">Faça seu login ou acesse como visitante.</Text>
         <AuthButtons canGuest />
       </WelcomeSection>

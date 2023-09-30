@@ -30,3 +30,21 @@ export const ProfileDetailsWrapper = styled('div', {
   gap: 40,
   marginTop: 50,
 })
+
+export const Button = styled('button', {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '10px',
+  marginTop: '50px',
+  padding: '10px 20px',
+  backgroundColor: '#181c2a',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  fontSize: '16px',
+
+  '&:hover': {
+    backgroundColor: '#1f2538',
+  },
+})

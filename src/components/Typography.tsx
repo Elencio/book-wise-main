@@ -71,6 +71,15 @@ export const Heading = styled('h1', {
       'gray-400': {
         color: '$gray400',
       },
+      'cyan-500': {
+        color: '$cyan500',
+      },
+      'orange-500': {
+        color: '$orange500',
+      },
+      'green-500': {
+        color: '$green500',
+      },
     },
   },
 

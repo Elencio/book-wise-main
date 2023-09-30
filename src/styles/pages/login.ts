@@ -31,3 +31,9 @@ export const WelcomeSection = styled('section', {
     marginTop: 40,
   },
 })
+
+export const ContentHeader = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '5px',
+})

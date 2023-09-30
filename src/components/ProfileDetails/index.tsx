@@ -1,5 +1,5 @@
 import { ProfileData } from '@/pages/profile/[id]'
-import { Container, ProfileDetailsWrapper, UserInfo } from './styles'
+import { Container, ProfileDetailsWrapper, UserInfo, Button } from './styles'
 import { Avatar } from '../ui/Avatar'
 import { Heading, Text } from '../Typography'
 import { ProfileDetailItem } from './ProfileDetailItem'
@@ -8,7 +8,9 @@ import {
   BookmarkSimple,
   Books,
   UserList,
+  Pen,
 } from '@phosphor-icons/react'
+import { useRouter } from 'next/router'
 
 type ProfileDetailsProps = {
   profile: ProfileData
@@ -16,6 +18,12 @@ type ProfileDetailsProps = {
 
 export const ProfileDetails = ({ profile }: ProfileDetailsProps) => {
   const memberSinceYear = new Date(profile.user.member_since).getFullYear()
+
+  const router = useRouter()
+
+  function handleWritePost() {
+    router.push(`/post-write`)
+  }
 
   return (
     <Container>
@@ -48,6 +56,10 @@ export const ProfileDetails = ({ profile }: ProfileDetailsProps) => {
           info={profile.readAuthors}
           label="Autores lidos"
         />
+        <Button onClick={handleWritePost}>
+          Write Post <Pen size={24} />
+        </Button>
+
         {profile?.mostReadCategory && (
           <ProfileDetailItem
             icon={<BookmarkSimple />}

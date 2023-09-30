@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react';
+import { createStitches } from '@stitches/react'
 
 export const { styled, getCssText, globalCss, theme } = createStitches({
   theme: {
@@ -6,7 +6,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       default: 'Nunito, sans-serif',
     },
 
-		space: {
+    space: {
       px: '1px',
       1: '0.25rem',
       2: '0.5rem',
@@ -19,7 +19,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       10: '2.5rem',
     },
 
-		fontSizes: {
+    fontSizes: {
       xs: '0.75rem',
       sm: '0.875rem',
       md: '1rem',
@@ -28,7 +28,7 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       '2xl': '1.5rem',
     },
 
-		fontWeights: {
+    fontWeights: {
       regular: '400',
       medium: '500',
       bold: '700',
@@ -42,12 +42,13 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
     },
 
     colors: {
-			white: '#FFFFFF',
+      white: '#FFFFFF',
       black: '#000000',
 
       green100: '#50B2C0',
       green200: '#255D6A',
       green300: '#0A313C',
+      green500: '#00FF00',
 
       purple100: '#8381D9',
       purple200: '#2A2879',
@@ -61,11 +62,14 @@ export const { styled, getCssText, globalCss, theme } = createStitches({
       gray700: '#181C2A',
       gray800: '#0E1116',
 
-			'gradient-vertical': `linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)`,
+      cyan500: '#00CED1',
+      orange500: '#FF8C00',
+
+      'gradient-vertical': `linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)`,
       'gradient-horizontal': `linear-gradient(90deg, #7FD1CC 0%, #9694F5 100%)`,
     },
 
-		radii: {
+    radii: {
       xs: '2.5px',
       sm: '5px',
       md: '10px',
